@@ -2,7 +2,6 @@ const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
 const client = new discord.Client();
-client.login(process.env.token);
 
 client.on("ready", async () => {
 
@@ -27,3 +26,4 @@ client.on("message", async message => {
     }
 
 })
+client.login(process.env.token);
