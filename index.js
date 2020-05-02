@@ -27,9 +27,9 @@ client.on("message", async message => {
 
     else if(command === `${prefix}alert`){
         var embed = new discord.MessageEmbed()
-        .setTitle("ALERT!")
-        .setDescription(messageArray[1])
-        .setFooter("Copyright 2020")
+        .setTitle(messageArray[1])
+        .setDescription(messageArray[2])
+        .setFooter("Van: " + message.author.username)
         .setColor("#00ffe1");
 
         return message.channel.send(embed);
