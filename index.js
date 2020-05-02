@@ -27,7 +27,7 @@ client.on("message", async message => {
 
     else if(command === `${prefix}alert`){
         var msg = "";
-				for(var i = 1; i < args.length; i++)
+				for(var i = 1; i < messageArray.length; i++)
 				{
 					msg = msg + args[i] + " ";
 				}
