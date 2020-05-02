@@ -26,9 +26,15 @@ client.on("message", async message => {
     }
 
     else if(command === `${prefix}alert`){
+        var msg = "";
+				for(var i = 1; i < args.length; i++)
+				{
+					msg = msg + args[i] + " ";
+				}
+        
         var embed = new discord.MessageEmbed()
         .setTitle(messageArray[1])
-        .setDescription(messageArray[2])
+        .setDescription(messageArray[i])
         .setFooter("Van: " + message.author.username)
         .setColor("#00ffe1");
 
