@@ -33,6 +33,7 @@ client.on("message", async message => {
         .setFooter("Van: " + message.author.username)
         .setColor("#00ffe1");
         
+        message.delete(3000);
 
         return message.channel.send(embed);
     }
