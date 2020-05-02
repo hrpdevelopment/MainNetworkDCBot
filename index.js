@@ -26,10 +26,7 @@ client.on("message", async message => {
     }
 
     else if(command === `${prefix}alert`){
-        msg = "";
-        for (var i = 2; i < messageArray.length; i++) {
-            msg = messageArray[i] + " ";
-        }
+        msg = messageArray.slice(2).join(' ');
         var embed = new discord.MessageEmbed()
         .setTitle(messageArray[1])
         .setDescription(msg)
