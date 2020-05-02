@@ -6,7 +6,8 @@ const client = new discord.Client();
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online!`);
-    client.user.setActivity("In development door HRP Development", {type: "Listening"});
+    client.user.setActivity("In development door HRP Development.", {type: "LISTENING"}); 
+    client.user.setGame("Test");
 })
 
 client.on("message", async message => {
