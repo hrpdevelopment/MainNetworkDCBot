@@ -26,7 +26,7 @@ client.on("message", async message => {
     }
 
     else if(command === `${prefix}alert`){
-        message.delete();
+        message.delete(300);
        
         msg = messageArray.slice(2).join(' ');
         var embed = new discord.MessageEmbed()
