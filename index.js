@@ -25,13 +25,14 @@ client.on("message", async message => {
         return message.channel.send("De bot is online!");
     }
 })
-client.on('guildMemberAdd', (guildMember, channel, message) => {
+client.on('guildMemberAdd', member => {
 
-    channelalg = client.get_channel("algemeen")
+    const algchannel = member.guild.channels.find("name", "algemeen")
+    if(!channel) console.log("Kan algemeen kannal niet vinden.")
 
     var embed = new discord.MessageEmbed()
         .setTitle(`Welkom - ${client.user.username}`)
-        .setDescription(`Welkom op de MainNetwork server ${guildMember}! Er zijn op dit moment *int* members in de server.`)
+        .setDescription(`Welkom op de MainNetwork server ${member}! Er zijn op dit moment *int* members in de server.`)
         .setFooter("Copyright 2020")
         .setColor("#00ffff");
 
