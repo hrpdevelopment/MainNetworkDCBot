@@ -32,7 +32,6 @@ client.on("message", async message => {
         var embed = new discord.MessageEmbed()
         .setTitle(messageArray[1])
         .setDescription(msg)
-        .setAuthor(message.author.username)
         .setFooter("Verzonden door: " + message.author.username)
         .setColor("#00ffe1");
 
