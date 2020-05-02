@@ -26,16 +26,21 @@ client.on("message", async message => {
     }
 
     else if(command === `${prefix}alert`){
-        message.delete();
-       
-        msg = messageArray.slice(2).join(' ');
-        var embed = new discord.MessageEmbed()
-        .setTitle(messageArray[1])
-        .setDescription(msg)
-        .setFooter("Verzonden door: " + message.author.username)
-        .setColor("#00ffe1");
+        if(message.member.roles.find(r => r.name === "┌T┘ Ticket Team")){
+            message.delete();
+            
+            msg = messageArray.slice(2).join(' ');
+            var embed = new discord.MessageEmbed()
+            .setTitle(messageArray[1])
+            .setDescription(msg)
+            .setFooter("Verzonden door: " + message.author.username)
+             .setColor("#00ffe1");
 
         return message.channel.send(embed);
+    }
+    else{
+        return message.channel.send("Je hebt geen permissie om dat te doen. Mongool :P")
+    }
     }
 
    
