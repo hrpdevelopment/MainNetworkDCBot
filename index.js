@@ -37,6 +37,21 @@ client.on("message", async message => {
 
         return message.channel.send(embed);
     }
+
+   
+    else if(command === `${prefix}help`){
+        var embed = new discord.MessageEmbed()
+        .setTitle("Help")
+        .setDescription("Hieronder vind je alle commando's.")
+        .addFields(
+            {name: prefix + "help", value: "Laat alle commando's zien en vertelt wat ze doen."},
+            {name: prefix + "test", value: "Test of de bot online is."}
+        )
+        .setFooter("Copyright 2020")
+        .setColor("#00ffe1");
+
+        return message.channel.send(embed);
+    }
 })
 client.on('guildMemberAdd', member => {
     return;
