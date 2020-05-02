@@ -25,7 +25,7 @@ client.on("message", async message => {
         return message.channel.send("De bot is online!");
     }
 
-    bot.on('guildMemberAdd', (guildMember, channel, message) => {
+    client.on('guildMemberAdd', (guildMember, channel, message) => {
 
         var embed = new discord.MessageEmbed()
             .setTitle(`Welkom - ${client.user.username}`)
@@ -33,7 +33,7 @@ client.on("message", async message => {
             .setFooter("Copyright 2020")
             .setColor("#00ffff");
 
-            return message.channel.send(embed);
+        return message.channel.send(embed);
     })
 
 })
