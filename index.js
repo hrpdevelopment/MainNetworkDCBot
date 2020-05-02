@@ -25,7 +25,7 @@ client.on("message", async message => {
         return message.channel.send("De bot is online!");
     }
 })
-client.on('guildMemberAdd', (guildMember, channel, message) => {
+client.on("guildMemberAdd", (guildMember, channel, message) => {
 
     var embed = new discord.MessageEmbed()
         .setTitle(`Welkom - ${client.user.username}`)
