@@ -29,7 +29,7 @@ client.on("message", async message => {
         var msg = "";
 				for(var i = 1; i < messageArray.length; i++)
 				{
-					msg = msg + args[i] + " ";
+					msg = msg + messageArray[i] + " ";
 				}
         
         var embed = new discord.MessageEmbed()
