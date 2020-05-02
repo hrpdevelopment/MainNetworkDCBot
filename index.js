@@ -24,17 +24,16 @@ client.on("message", async message => {
     if(command === `${prefix}test`){
         return message.channel.send("De bot is online!");
     }
-
-    client.on('guildMemberAdd', (guildMember, channel, message) => {
-
-        var embed = new discord.MessageEmbed()
-            .setTitle(`Welkom - ${client.user.username}`)
-            .setDescription(`Welkom op de MainNetwork server ${guildMember}! Er zijn op dit moment *int* members in de server.`)
-            .setFooter("Copyright 2020")
-            .setColor("#00ffff");
-
-        return message.channel.send(embed);
-    })
-
 })
+client.on('guildMemberAdd', (guildMember, channel, message) => {
+
+    var embed = new discord.MessageEmbed()
+        .setTitle(`Welkom - ${client.user.username}`)
+        .setDescription(`Welkom op de MainNetwork server ${guildMember}! Er zijn op dit moment *int* members in de server.`)
+        .setFooter("Copyright 2020")
+        .setColor("#00ffff");
+
+    return message.channel.send(embed);
+})
+
 client.login(process.env.token);
