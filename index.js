@@ -28,7 +28,7 @@ client.on("message", async message => {
 client.on('guildMemberAdd', member => {
     let myChannel = 'algemeen';
 
-    let targetChannel = msg.guild.channels.get(myChannel);
+    let targetChannel = member.guild.channels.get(myChannel);
     if (targetChannel) targetChannel.send('test');
 
     var embed = new discord.MessageEmbed()
