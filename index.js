@@ -33,6 +33,7 @@ client.on("message", async message => {
             .setFooter("Copyright 2020")
             .setColor("#00ffff");
 
+            return message.channel.send(embed);
     })
 
 })
