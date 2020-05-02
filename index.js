@@ -26,7 +26,7 @@ client.on("message", async message => {
     }
 
     else if(command === `${prefix}alert`){
-        const i = 2 + messageArray.length;
+        var i = 2 + messageArray.length();
         
         var embed = new discord.MessageEmbed()
         .setTitle(messageArray[1])
