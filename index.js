@@ -26,10 +26,8 @@ client.on("message", async message => {
     }
 })
 client.on('guildMemberAdd', member => {
-    let myChannel = 'algemeen';
+    var kanaal = message.guild.channels.cache.find(c => c.name == "algemeen"); 
 
-    let targetChannel = member.guild.channels.get(myChannel);
-    if (targetChannel) targetChannel.send('test');
 
     var embed = new discord.MessageEmbed()
         .setTitle(`Welkom - ${client.user.username}`)
@@ -37,7 +35,7 @@ client.on('guildMemberAdd', member => {
         .setFooter("Copyright 2020")
         .setColor("#00ffff");
 
-    if (targetChannel) targetChannel.send(embed);
+    return message.send.kanaal(embed);
 })
 
 client.login(process.env.token);
