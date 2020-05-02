@@ -27,14 +27,13 @@ client.on("message", async message => {
 })
 client.on('guildMemberAdd', (guildMember, channel, message) => {
 
-    return message.channel.send("test!");
     var embed = new discord.MessageEmbed()
         .setTitle(`Welkom - ${client.user.username}`)
         .setDescription(`Welkom op de MainNetwork server ${guildMember}! Er zijn op dit moment *int* members in de server.`)
         .setFooter("Copyright 2020")
         .setColor("#00ffff");
 
-    return message.channel.send(embed);
+    return client.channels.get("algemeen").send(embed);
 })
 
 client.login(process.env.token);
