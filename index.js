@@ -26,9 +26,10 @@ client.on("message", async message => {
     }
 })
 client.on('guildMemberAdd', member => {
+    let myChannel = 'algemeen';
 
-    const algchannel = member.guild.channels.find("name", "algemeen")
-    if(!channel) console.log("Kan algemeen kannal niet vinden.")
+    let targetChannel = msg.guild.channels.get(myChannel);
+    if (targetChannel) targetChannel.send('test');
 
     var embed = new discord.MessageEmbed()
         .setTitle(`Welkom - ${client.user.username}`)
@@ -36,7 +37,7 @@ client.on('guildMemberAdd', member => {
         .setFooter("Copyright 2020")
         .setColor("#00ffff");
 
-    return channelalg.send(embed);
+    if (targetChannel) targetChannel.send(embed);
 })
 
 client.login(process.env.token);
