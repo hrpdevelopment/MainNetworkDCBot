@@ -34,12 +34,14 @@ client.on("message", async message => {
             .setTitle(messageArray[1])
             .setDescription(msg)
             .setFooter("Verzonden door: " + message.author.username)
-             .setColor("#00ffe1");
+            .setColor("#00ffe1");
 
         return message.channel.send(embed);
     }
     else{
-        return message.channel.send("Je hebt geen permissie om dat te doen. Mongool :P")
+        message.channel.send("Je hebt geen permissie om dat te doen. Mongool :P");
+        message.delete({timeout: 3000});
+        return;
     }
     }
 
