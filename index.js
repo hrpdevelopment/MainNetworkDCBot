@@ -40,7 +40,7 @@ client.on("message", async message => {
     }
     else{
         return message.channel.send("Je hebt geen permissie om dat te doen. Mongool :P").then(msg => {
-            msg.delete({tiemeout: 3000})
+            msg.delete({timeout: 3000})
             message.delete({timeout: 3000});
           });
     }
