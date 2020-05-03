@@ -54,7 +54,8 @@ client.on("message", async message => {
         .addFields(
             {name: prefix + "help", value: "Laat alle commando's zien en vertelt wat ze doen."}, //?help
             {name: prefix + "test", value: "Test of de bot online is."}, //?test
-            {name: prefix + "alert", value: "Laat een mededeling zien. ?alert [Titel] [bericht]. Voorbeeld: ?alert Mededeling Dit is een voorbeeldmededeling. Je moet voor dit commando de rol 「L」Lead Team hebben."} //?alert
+            {name: prefix + "alert", value: "Laat een mededeling zien. ?alert [Titel] [bericht]. Voorbeeld: ?alert Mededeling Dit is een voorbeeldmededeling. Je moet voor dit commando de rol 「L」Lead Team hebben."}, //?alert
+            {name: prefix + "poll", value: "Maak een poll. ?poll [naam-(aan-elkaar)] [antwoord-1-(aan-elkaar)] [antwoord-2-(aan-elkaar)] [Extra info en vraag]. Voorbeeld: ?poll Test? Ja Nee Is dit een test?"} //?poll
         )
         .setFooter("Copyright 2020")
         .setColor("#00ffe1");
