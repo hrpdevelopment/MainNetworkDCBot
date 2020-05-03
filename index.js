@@ -69,14 +69,13 @@ client.on("message", async message => {
            
             var embed = new discord.MessageEmbed()
             .setTitle("Poll | " + messageArray[1])
-            .setDescription(msg)
             .addFields(
                 {name: "Optie 1", value: messageArray[2]},
                 {name: "Optie 2", value: messageArray[3]}
             )
             .setFooter("Verzonden door: " + message.author.username)
             .setColor("#00ffe1")
-            .setDescription("Antwoord met 1️⃣ of 2️⃣ om te stemmen!");
+            .setDescription("Antwoord met 1️⃣ of 2️⃣ om te stemmen! - " + msg);
 
             return message.channel.send(embed).then(msg => {
                 msg.react('1️⃣');
