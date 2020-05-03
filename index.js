@@ -77,8 +77,8 @@ client.on("message", async message => {
             .setFooter("Verzonden door: " + message.author.username);
 
             return message.channel.send(embed).then(msg => {
-                msg.react('👍');
-                msg.react('👎');
+                msg.react('1️⃣');
+                msg.react('2️⃣');
                 message.delete();
             });
             
