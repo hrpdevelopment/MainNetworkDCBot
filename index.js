@@ -26,7 +26,7 @@ client.on("message", async message => {
     }
 
     else if(command === `${prefix}alert`){
-        if(member.roles.cache.some(role => role.name === '「L」Lead Team')){
+        if(message.member.roles.find(r => r.name === "「L」Lead Team")){
             message.delete();
             
             msg = messageArray.slice(2).join(' ');
