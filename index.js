@@ -71,10 +71,12 @@ client.on("message", async message => {
             .setTitle("Poll | " + messageArray[1])
             .setDescription(msg)
             .addFields(
-                {name: prefix + "Optie 1", value: messageArray[2]},
-                {name: prefix + "Optie 2", value: messageArray[3]}
+                {name: "Optie 1", value: messageArray[2]},
+                {name: "Optie 2", value: messageArray[3]}
             )
-            .setFooter("Verzonden door: " + message.author.username);
+            .setFooter("Verzonden door: " + message.author.username)
+            .setColor("#00ffe1")
+            .setDescription("Antwoord met 1️⃣ of 2️⃣ om te stemmen!");
 
             return message.channel.send(embed).then(msg => {
                 msg.react('1️⃣');
