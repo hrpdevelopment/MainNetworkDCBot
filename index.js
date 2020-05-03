@@ -6,7 +6,7 @@ const client = new discord.Client();
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online!`);
-    client.user.setActivity(prefix + "help", {type: "LISTENING"}); 
+    client.user.setActivity(botConfig.prefix + "help", {type: "LISTENING"}); 
 })
 
 client.on("message", async message => {
