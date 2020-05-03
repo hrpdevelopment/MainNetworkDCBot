@@ -6,7 +6,7 @@ const client = new discord.Client();
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online!`);
-    client.user.setActivity("In development door HRP Development.", {type: "LISTENING"}); 
+    client.user.setActivity(prefix + "help", {type: "LISTENING"}); 
 })
 
 client.on("message", async message => {
@@ -61,7 +61,25 @@ client.on("message", async message => {
 
         return message.channel.send(embed);
     }
+
+    else if(command === `${prefix}poll`)
+        {
+            
+            msg = messageArray.slice(4).join(' ');
+           
+            var embed = new discord.MessageEmbed()
+            .setTitle("Poll | " + messageArray[1])
+            .setDescription(msg)
+            .addFields(
+                {name: prefix + "Optie 1", value: messageArray[2]},
+                {name: prefix + "Optie 2", value: messageArray[3]}
+            )
+            .setFooter("Verzonden door: " + message.author.username);
+
+            return message.channel.send(embed);
+        }
 })
+
 client.on('guildMemberAdd', member => {
     return;
 })
