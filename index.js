@@ -51,8 +51,9 @@ client.on("message", async message => {
         .setTitle("Help")
         .setDescription("Hieronder vind je alle commando's.")
         .addFields(
-            {name: prefix + "help", value: "Laat alle commando's zien en vertelt wat ze doen."},
-            {name: prefix + "test", value: "Test of de bot online is."}
+            {name: prefix + "help", value: "Laat alle commando's zien en vertelt wat ze doen."}, //?help
+            {name: prefix + "test", value: "Test of de bot online is."}, //?test
+            {name: prefix + "alert", value: "Laat een mededeling zien. ?alert [Titel] [bericht]. Voorbeeld: ?alert Mededeling Dit is een voorbeeldmededeling. Je moet voor dit commando de rol 「L」Lead Team hebben."} //?alert
         )
         .setFooter("Copyright 2020")
         .setColor("#00ffe1");
