@@ -39,9 +39,10 @@ client.on("message", async message => {
         return message.channel.send(embed);
     }
     else{
-        message.channel.send("Je hebt geen permissie om dat te doen. Mongool :P");
-        message.delete({timeout: 3000});
-        return;
+        return message.channel.send("Je hebt geen permissie om dat te doen. Mongool :P").then(msg => {
+            msg.delete({tiemeout: 3000})
+            message.delete({timeout: 3000});
+          });
     }
     }
 
