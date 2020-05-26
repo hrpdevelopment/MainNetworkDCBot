@@ -89,13 +89,13 @@ client.on("message", async message => {
     else if(command === `${prefix}giveaway`)
         {
             if(message.member.roles.cache.some(role => role.name === '「L」Lead Team')){
-                let timev = message.content.slice(bot.prefix.length+9)
+                let timev = message.content.slice(client.prefix.length+9)
                 if(!timev) return message.channel.send('Je hebt geen tijd meegegeven.')
                 let time = parseInt(timev,10)
                 if(time<= 15000){
                     return message.channel.send('Je tijd moet langer dan 15 seconden zijn! (15000 ms)')
                 }
-                let prize = message.content.slice(bot.prefix.length+9+time.length)
+                let prize = message.content.slice(client.prefix.length+9+time.length)
                 if(!prize) return message.channel.send('Je hebt geen prijs meegegeven.')
             }
             else{
