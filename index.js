@@ -55,7 +55,8 @@ client.on("message", async message => {
             {name: prefix + "help", value: "Laat alle commando's zien en vertelt wat ze doen."}, //?help
             {name: prefix + "test", value: "Test of de bot online is."}, //?test
             {name: prefix + "alert", value: "Laat een mededeling zien. ?alert [Titel] [bericht]. Voorbeeld: ?alert Mededeling Dit is een voorbeeldmededeling. Je moet voor dit commando de rol 「L」Lead Team hebben."}, //?alert
-            {name: prefix + "poll", value: "Maak een poll. ?poll [naam-(aan-elkaar)] [antwoord-1-(aan-elkaar)] [antwoord-2-(aan-elkaar)] [Extra info en vraag]. Voorbeeld: ?poll Test? Ja Nee Is dit een test?"} //?poll
+            {name: prefix + "poll", value: "Maak een poll. ?poll [naam-(aan-elkaar)] [antwoord-1-(aan-elkaar)] [antwoord-2-(aan-elkaar)] [Extra info en vraag]. Voorbeeld: ?poll Test? Ja Nee Is dit een test?"}, //?poll
+            {name: prefix + "giveaway", value: "Maak een giveaway. ?giveaway [tijd-minuten-(aan-elkaar)] [prijs-(aan-elkaar)] [[Extra info (hoeft niet aan elkaar)]. Voorbeeld: ?giveaway Test? 60 Dit is een test giveaway."} //?giveaway
         )
         .setFooter("Copyright 2020")
         .setColor("#00ffe1");
@@ -84,6 +85,25 @@ client.on("message", async message => {
                 message.delete();
             });
             
+        }
+    else if(command === `${prefix}giveaway`)
+        {
+            if(message.member.roles.cache.some(role => role.name === '「L」Lead Team')){
+                let timev = message.content.slice(bot.prefix.length+9)
+                if(!timev) return message.channel.send('Je hebt geen tijd meegegeven.')
+                let time = parseInt(timev,10)
+                if(time<= 15000){
+                    return message.channel.send('Je tijd moet langer dan 15 seconden zijn! (15000 ms)')
+                }
+                let prize = message.content.slice(bot.prefix.length+9+time.length)
+                if(!prize) return message.channel.send('Je hebt geen prijs meegegeven.')
+            }
+            else{
+                return message.channel.send("Je hebt geen permissie om dat te doen.").then(msg => {
+                    msg.delete({timeout: 3000})
+                    message.delete({timeout: 3000});
+                    });
+            }
         }
 })
 
