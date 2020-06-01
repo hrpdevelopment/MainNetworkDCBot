@@ -195,7 +195,7 @@ client.on("message", async message => {
         }
     else if(command === `${prefix}ticketkanaal`)
         {
-            if(!message.member.roles.cache.some(role => role.name === 'Support Team')) return message.channel.send("Je hebt geen permissie om dat te doen.")
+            if(!message.member.roles.cache.some(role => role.name === 'Support Team')) return message.channel.send("Je hebt geen permissie om dat te doen.");
 
             var embed = discord.MessageEmbed()
             .setTitle("Tickets")
