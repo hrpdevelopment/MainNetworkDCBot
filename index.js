@@ -128,7 +128,7 @@ client.on("message", async message => {
 
             if(ticketExist) return;
 
-            var creatEmbed = discord.MessageEmbed()
+            var createEmbed = discord.MessageEmbed()
             .setTitle("Hoi " + message.author.username + "!")
             .setDescription("Er is een ticket aangemaakt in #" + userName.toLowerCase() + "-" + userDiscriminator)
             .setColor("#00ffe1")
@@ -204,13 +204,13 @@ client.on("message", async message => {
         {
             if(!message.member.roles.cache.some(role => role.name === 'Support Team')) return message.channel.send("Je hebt geen permissie om dat te doen.");
 
-            var embed = discord.MessageEmbed()
+            var embed = new discord.MessageEmbed()
             .setTitle("Tickets")
-            .setColor("#00ffe1")
-            .setDescription("Doe ?ticket in dit kanaal om een ticket aan te maken.")
-            .setFooter("DeltaNetwork tickets");
+            .setDescription("Maak een ticket aan door ?ticket te doen.")
+            .setFooter("DeltaNetwork tickets")
+            .setColor("#00ffe1");
 
-            message.channel.send(embed);
+        return message.channel.send(embed);
         }
 })
 
