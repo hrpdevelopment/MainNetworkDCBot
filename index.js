@@ -56,7 +56,7 @@ client.on("message", async message => {
             {name: prefix + "test", value: "Test of de bot online is."}, //?test
             {name: prefix + "alert", value: "Laat een mededeling zien. ?alert [Titel] [bericht]. Voorbeeld: ?alert Mededeling Dit is een voorbeeldmededeling. Je moet voor dit commando de rol 「L」Lead Team hebben."}, //?alert
             {name: prefix + "poll", value: "Maak een poll. ?poll [naam-(aan-elkaar)] [antwoord-1-(aan-elkaar)] [antwoord-2-(aan-elkaar)] [Extra info en vraag]. Voorbeeld: ?poll Test? Ja Nee Is dit een test?"}, //?poll
-            {name: prefix + "giveaway", value: "Maak een giveaway. ?giveaway [tijd-minuten-(aan-elkaar)] [prijs-(aan-elkaar)] [[Extra info (hoeft niet aan elkaar)]. Voorbeeld: ?giveaway Test? 60 Dit is een test giveaway."} //?giveaway
+            {name: prefix + "ticket", value: "Maak een ticket. ?ticket"} //?ticket
         )
         .setFooter("Copyright 2020")
         .setColor("#00ffe1");
@@ -104,6 +104,64 @@ client.on("message", async message => {
                     message.delete({timeout: 3000});
                     });
             }
+        }
+    else if(command === `${prefix}ticket`)
+        {
+            const categoryID = "717044949270397008";
+
+            var userName = message.author.username;
+            var userDiscriminator = message.author.discriminator;
+
+            var ticketExist = false;
+
+            message.guild.channels.cache.forEach(channel => {
+
+                if(channel.name == userName.toLowerCase() + "-" + userDiscriminator){
+                    ticketExist = true;
+
+                    message.channel.send("Je hebt al een ticket aangemaakt. Zie je hem niet staan? Spreek dan even de staff aan.")
+
+                    return;
+                }
+
+            });
+
+            if(ticketExist) return;
+
+            message.channel.send("Hoi, " + message.author.username + "! Er is een ticket aangemaakt in #" + userName.toLowerCase() + "-" + userDiscriminator);
+
+            message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, {type: 'text'}).then(
+                (createdChannel) => {
+                    createdChannel.setParent(categoryID).then(
+                        (settedParent) => {
+
+                            settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === '@everyone'), {
+                                SEND_MESSAGES: false, 
+                                VIEW_CHANNEL: false
+                            });
+
+                            settedParent.updateOverwrite(message.author.id, {
+                                CREATE_INSTANT_INVITE: false, 
+                                READ_MESSAGES: true, 
+                                SEND_MESSAGES: true, 
+                                ATTACH_FILES: true, 
+                                CONNECT: true, 
+                                ADD_REACTIONS: true
+                            });
+
+                            var embedParent = new discord.MessageEmbed()
+                                .setTitle(`Hoi ${message.author.username}`)
+                                .setDescription("Zet hier je bericht/vraag. Deze tekst word nog aangepast");
+
+                            settedParent.send(embedParent);
+                        }
+                    ).catch(err => {
+                        message.channel.send("Er is iets misgegaan in de code. Neem contact op met de developer of probeer opnieuw.")
+                    });
+                }
+            ).catch(err => {
+                message.channel.send("Er is iets misgegaan in de code. Neem contact op met de developer.")
+            });
         }
 })
 
