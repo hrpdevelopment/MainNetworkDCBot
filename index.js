@@ -193,6 +193,19 @@ client.on("message", async message => {
             }
 
         }
+    else if(command === `${prefix}ticketkanaal`)
+        {
+            if(!message.member.roles.cache.some(role => role.name === 'Support Team')) return message.channel.send("Je hebt geen permissie om dat te doen.")
+
+            var embed = discord.MessageEmbed()
+            .setTitle("Tickets")
+            .setDescription("Doe ?ticket in dit kanaal om een ticket aan te maken.")
+            .setFooter("DeltaNetwork");
+
+            message.channel.send(embed);
+
+            message.author.send("Hoi, zorg ervoor dat mensen het kanaal kunnen bekijken, de berichten en berichtgeschiedenis kunnen lezen en berichten kunnen verzenden.");
+        }
 })
 
 client.on('guildMemberAdd', member => {
