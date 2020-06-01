@@ -164,7 +164,7 @@ client.on("message", async message => {
 
                             var embedParent = new discord.MessageEmbed()
                                 .setTitle(`Hoi ${message.author.username}`)
-                                .setDescription("Zet hier je bericht/vraag. Deze tekst word nog aangepast");
+                                .setDescription("Welkom bij je ticket. Zet hier je vraag of bericht.");
 
                             settedParent.send(embedParent);
                         }
