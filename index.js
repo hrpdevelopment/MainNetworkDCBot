@@ -128,7 +128,13 @@ client.on("message", async message => {
 
             if(ticketExist) return;
 
-            message.channel.send("Hoi, " + message.author.username + "! Er is een ticket aangemaakt in #" + userName.toLowerCase() + "-" + userDiscriminator);
+            var creatEmbed = discord.MessageEmbed()
+            .setTitle("Hoi " + message.author.username + "!")
+            .setDescription("Er is een ticket aangemaakt in #" + userName.toLowerCase() + "-" + userDiscriminator)
+            .setColor("#00ffe1")
+            .setFooter("DeltaNetwork tickets");
+
+            message.channel.send(createEmbed);
 
             message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, {type: 'text'}).then(
                 (createdChannel) => {
@@ -164,6 +170,7 @@ client.on("message", async message => {
 
                             var embedParent = new discord.MessageEmbed()
                                 .setTitle(`Hoi ${message.author.username}`)
+                                .setColor("#00ffe1")
                                 .setDescription("Welkom bij je ticket. Zet hier je vraag of bericht.");
 
                             settedParent.send(embedParent);
@@ -199,8 +206,9 @@ client.on("message", async message => {
 
             var embed = discord.MessageEmbed()
             .setTitle("Tickets")
+            .setColor("#00ffe1")
             .setDescription("Doe ?ticket in dit kanaal om een ticket aan te maken.")
-            .setFooter("DeltaNetwork");
+            .setFooter("DeltaNetwork tickets");
 
             message.channel.send(embed);
         }
