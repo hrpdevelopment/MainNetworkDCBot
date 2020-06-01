@@ -173,7 +173,7 @@ client.on("message", async message => {
                     });
                 }
             ).catch(err => {
-                message.channel.send("Er is iets misgegaan in de code. Neem contact op met de developer.")
+                message.channel.send("Er is iets misgegaan in de code. Neem contact op met de developer of probeer opnieuw.")
             });
         }
     else if(command === `${prefix}tickethelp`)
