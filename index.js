@@ -151,6 +151,17 @@ client.on("message", async message => {
                                 READ_MESSAGE_HISTORY: true
                             });
 
+                            settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === 'Support Team'), {
+                                CREATE_INSTANT_INVITE: false, 
+                                READ_MESSAGES: true, 
+                                SEND_MESSAGES: true, 
+                                ATTACH_FILES: true, 
+                                CONNECT: true, 
+                                ADD_REACTIONS: true,
+                                VIEW_CHANNEL: true,
+                                READ_MESSAGE_HISTORY: true
+                            });
+
                             var embedParent = new discord.MessageEmbed()
                                 .setTitle(`Hoi ${message.author.username}`)
                                 .setDescription("Zet hier je bericht/vraag. Deze tekst word nog aangepast");
