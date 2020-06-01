@@ -169,9 +169,9 @@ client.on("message", async message => {
                             });
 
                             var embedParent = new discord.MessageEmbed()
-                                .setTitle(`Hoi ${message.author.username}`)
+                                .setTitle(`Hoii ${message.author.username}`)
                                 .setColor("#00ffe1")
-                                .setDescription("Welkom bij je ticket. Zet hier je vraag of bericht.");
+                                .setDescription("Dit is uw ticket. U kunt uw vraag alvast stellen, onze support medewerkers komen z.s.m bij u!");
 
                             settedParent.send(embedParent);
                         }
