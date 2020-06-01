@@ -56,7 +56,7 @@ client.on("message", async message => {
             {name: prefix + "test", value: "Test of de bot online is."}, //?test
             {name: prefix + "alert", value: "Laat een mededeling zien. ?alert [Titel] [bericht]. Voorbeeld: ?alert Mededeling Dit is een voorbeeldmededeling. Je moet voor dit commando de rol 「L」Lead Team hebben."}, //?alert
             {name: prefix + "poll", value: "Maak een poll. ?poll [naam-(aan-elkaar)] [antwoord-1-(aan-elkaar)] [antwoord-2-(aan-elkaar)] [Extra info en vraag]. Voorbeeld: ?poll Test? Ja Nee Is dit een test?"}, //?poll
-            {name: prefix + "ticket", value: "Maak een ticket. ?ticket"} //?ticket
+            {name: prefix + "tickethelp", value: "Voor meer info over tickets, doe ?tickethelp"} //?tickethelp
         )
         .setFooter("Copyright 2020")
         .setColor("#00ffe1");
@@ -146,7 +146,9 @@ client.on("message", async message => {
                                 SEND_MESSAGES: true, 
                                 ATTACH_FILES: true, 
                                 CONNECT: true, 
-                                ADD_REACTIONS: true
+                                ADD_REACTIONS: true,
+                                VIEW_CHANNEL: true,
+                                READ_MESSAGE_HISTORY: true
                             });
 
                             var embedParent = new discord.MessageEmbed()
@@ -162,6 +164,23 @@ client.on("message", async message => {
             ).catch(err => {
                 message.channel.send("Er is iets misgegaan in de code. Neem contact op met de developer.")
             });
+        }
+    else if(command === `${prefix}tickethelp`)
+        {
+            message.channel.send("We zijn nog bezig met deze functie, kom later terug.")
+        }
+    else if(command === `${prefix}close`)
+        {
+            const categoryID = "717044949270397008";
+            
+            if(!message.member.roles.cache.some(role => role.name === 'Support Team')) return message.channel.send("Je hebt geen permissie om dat te doen.")
+
+            if(message.channel.parentID == categoryID){
+                message.channel.delete();
+            }else{
+                message.channel.send("Je kunt dit commando alleen in tickets doen.");
+            }
+
         }
 })
 
