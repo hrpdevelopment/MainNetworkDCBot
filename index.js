@@ -128,7 +128,7 @@ client.on("message", async message => {
 
             if(ticketExist) return;
 
-            var createEmbed = discord.MessageEmbed()
+            var createEmbed = new discord.MessageEmbed()
             .setTitle("Hoi " + message.author.username + "!")
             .setDescription("Er is een ticket aangemaakt in #" + userName.toLowerCase() + "-" + userDiscriminator)
             .setColor("#00ffe1")
