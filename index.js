@@ -132,7 +132,7 @@ client.on("message", async message => {
             .setTitle("Hoi " + message.author.username + "!")
             .setDescription("Er is een ticket aangemaakt in #" + userName.toLowerCase() + "-" + userDiscriminator)
             .setColor("#00ffe1")
-            .setFooter("DeltaNetwork tickets");
+            .setFooter("EnderMT tickets");
 
             message.channel.send(createEmbed);
 
@@ -206,8 +206,8 @@ client.on("message", async message => {
 
             var embed = new discord.MessageEmbed()
             .setTitle("Tickets")
-            .setDescription("Maak een ticket aan door ?ticket te doen.")
-            .setFooter("DeltaNetwork tickets")
+            .setDescription("Maak een ticket aan door ?ticket te doen in 「🤖」commands.")
+            .setFooter("EnderMT tickets")
             .setColor("#00ffe1");
 
         return message.channel.send(embed);
