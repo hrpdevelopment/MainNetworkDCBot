@@ -107,7 +107,7 @@ client.on("message", async message => {
         }
     else if(command === `${prefix}ticket`)
         {
-            const categoryID = "715193942907420702";
+            const categoryID = "717487990091415613";
 
             var userName = message.author.username;
             var userDiscriminator = message.author.discriminator;
@@ -189,7 +189,7 @@ client.on("message", async message => {
         }
     else if(command === `${prefix}close`)
         {
-            const categoryID = "715193942907420702";
+            const categoryID = "717487990091415613";
             
             if(!message.member.roles.cache.some(role => role.name === 'Support Team')) return message.channel.send("Je hebt geen permissie om dat te doen.")
 
